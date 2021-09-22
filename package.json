@@ -17,6 +17,8 @@
   },
   "dependencies": {
     "@probot/adapter-aws-lambda-serverless": "^2.0.2",
+    "form-data": "^4.0.0",
+    "hashids": "^2.2.8",
     "probot": "^11.0.1"
   },
   "devDependencies": {
