@@ -5,11 +5,11 @@
 
  module.exports = (app) => {
   app.log.info('App has loaded');
-  app.on('issues.opened', async (context) => {
-    context.octokit.issues.createComment(
-      context.issue({
-        body: 'Thanks for opening this issue!',
-      })
-    );
-  });
+  // app.on('issues.opened', async (context) => {
+  //   context.octokit.issues.createComment(
+  //     context.issue({
+  //       body: 'Thanks for opening this issue!',
+  //     })
+  //   );
+  // });
 };
