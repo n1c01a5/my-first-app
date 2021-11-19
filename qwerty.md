@@ -1,4 +1,4 @@
-# my-first-app
+# my-first-app :)
 
 > A GitHub App built with [Probot](https://github.com/probot/probot) that A Probot app
 
