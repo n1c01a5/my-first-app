@@ -1,15 +1,23 @@
-on: [push]
+name: Like pizza
+
+on:
+  issue_comment:
+    types:
+      - created
 
 jobs:
-  hello_world_job:
+  like-pizza:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    if: ${{ github.event.comment.body == 'I like pizza'}}
     steps:
-      - name: Hello world action step
-        id: hello
-        uses: n1c01a5/hello-world-javascript-action@v1.1
+      - name: Like pizza
+        uses: actions/github-script@v4
         with:
-          who-to-greet: 'Mona the n1c01a5'
-      # Use the output from the `hello` step
-      - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+          script: |
+            const {owner, repo} = context.issue
+            github.reactions.createForIssueComment({
+              owner,
+              repo,
+              comment_id: context.payload.comment.id,
+              content: "+1",
+            });
